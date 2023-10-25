@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <!-- Brand -->
+    <a routerLink="/" class="navbar-brand">Rent A Car</a>
+
+    <!--#region Navbar Menu Toggler -->
+    <button
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      class="navbar-toggler"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!--#endregion -->
+
+    <!--#region Navbar Menu -->
+    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- Nav Items -->
+        <li *ngFor="let navItem of navItems" class="nav-item">
+          <a
+            [routerLink]="navItem.route"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: navItem.exact ?? false }"
+            class="nav-link"
+            aria-current="page"
+            >{{ navItem.label }}</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!--#endregion  -->
+  </div>
+</nav>

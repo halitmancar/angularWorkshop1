@@ -1,0 +1,33 @@
+<div class="row">
+  <aside class="col-md-2">
+    <div class="list-group">
+      <a href="#" (click)="getList()" class="list-group-item list-group-item-action list-group-item-primary">No Filter</a>
+      <div *ngFor="let brand of brandsSet">
+        <a href="#" (click)="getFilteredList(brand)" class="list-group-item list-group-item-action list-group-item-primary">{{brand}}</a>
+      </div>
+    </div>
+  </aside>
+  <div class="col">
+    <div class="row">
+      <div *ngFor="let car of tempCars | paginate: { itemsPerPage: 9, currentPage: currentPage}" class="col-md-3 p-1">
+        <div class="card">
+          <img
+            [src]="car.imageUrl"
+            class="card-img-top"
+            alt="{{ car.model.brand.name }} {{ car.model.name }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ car.model.brand.name }} {{ car.model.name }}
+            </h5>
+            <p class="card-text">
+              {{ car.dailyPrice }}
+            </p>
+            <a class="btn btn-primary">Rent</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<pagination-controls (pageChange)="currentPage = $event" class="float-right"></pagination-controls>
