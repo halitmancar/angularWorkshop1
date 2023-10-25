@@ -38,7 +38,6 @@ export class CarCardListComponent implements OnInit {
         this.cars = response.items;
         this.tempCars = this.cars;
         this.getBrandsOfCars();
-        console.log(this.cars);
         this.changeDetector.detectChanges(); // State'ler üzerindeki değişiklikleri Angular'ın algılaması için uyarmış oluyoruz.
       },
     });
@@ -48,7 +47,6 @@ export class CarCardListComponent implements OnInit {
       this.currentPage = 1;
       this.tempCars = [];
       this.tempCars = this.cars.filter(car => car.model.brand.name == brandName);
-      console.log(this.tempCars)
   }
 
   getBrandsOfCars(): Set<string> {
